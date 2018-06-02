@@ -31,7 +31,7 @@ using namespace std;
  
 int main(void){ // peso_1 * comprimento_1 = peso_2 * comprimento_2
 	int p1, c1, p2, c2;
-  
+ 
 	cin >> p1 >> c1 >> p2 >> c2;
   
 	if((p1 >= 10 && p1 <= 100) && (c1 >= 10 && c1 <= 100) &&
