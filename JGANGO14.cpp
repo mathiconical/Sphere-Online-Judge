@@ -37,14 +37,15 @@ int main(void){ // peso_1 * comprimento_1 = peso_2 * comprimento_2
 	if((p1 >= 10 && p1 <= 100) && (c1 >= 10 && c1 <= 100) &&
 	   (p2 >= 10 && p2 <= 100) && (c2 >= 10 && c2 <= 100)){ // condições de peso e comprimento
 	
-    if(p1*c1 > p2*c2) // se lado esquerdo estiver mais pesado
+   		if(p1*c1 > p2*c2) // se lado esquerdo estiver mais pesado
 			cout << -1;
 		
-    else if(p1*c1 < p2*c2)  // se lado direito estiver mais pesado
+   		else if(p1*c1 < p2*c2)  // se lado direito estiver mais pesado
 			cout << 1;
 		
-    else if(p1*c1 == p2*c2) // se ambos estiverem no mesmo peso
+   		else if(p1*c1 == p2*c2) // se ambos estiverem no mesmo peso
 			cout << 0;
 }
  
-	return 0; }
+	return 0; 
+}
