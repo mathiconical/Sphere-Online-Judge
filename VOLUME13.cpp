@@ -56,7 +56,7 @@ int main(void){
         if(vol_ini>100) // verifica se volume excede 100
             vol_ini = 100; // limita o volume maximo a 100
             
-        if(vol_ini<0) // verifica se o volume e menor que 0
+        else if(vol_ini<0) // verifica se o volume e menor que 0
             vol_ini = 0; // limita o volume minimo a 0
         
     }
