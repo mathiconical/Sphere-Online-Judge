@@ -1,22 +1,14 @@
 /* ESTE CODIGO EH FERENTE AO DESAFIO DO SPOJ ( https://br.spoj.com/problems/OBITETRI/ )
- * ESTOU SUBINDO ELE MAS AINDA NÃO ESTÁ PRONTO, PARTE DELE ESTA INACABADA.
- * ESTA PARTE EH SIMPLESMENTE A DO RANKING, CASO PONTOS SEJAM IGUAIS O RANKING DEVE SER ASSIM:
- * 1 3000 CADAO
- * 1 3000 JOAO
- * 3 2100 ILLINOIS
- * COMO SE PERCEBE, CASO PONTUACAO FOR IGUAL, NAO HA UM SEGUNDO LUGAR, AMBOS OBTEM O MESMO PALANQUE.
- * ESTA EH A PARTE QUE FALTA IMPLEMENTAR, NO CASO, ELE APRESENTA COMO SAIDA ASSIM:
- * 1 3000 CADAO
- * 2 3000 JOAO
- * 3 2100 ILLINOIS
- * NAO CONSEGUI TERMINAR AINDA, CASO UM DOS COMPANHEIROS DA CLASSE CONSIGA IMPLEMENTAR, FAVOR ENTRAR EM
- * CONTATO COMIGO.
- * GRATO, ATT, NETO!
+ * ESTOU SUBINDO ELE MAS AINDA NÃO ESTÁ PRONTO, PARTE DELE ESTA INACABADA, POIS ACUSA ERRO NO SPOJ.
  */
 
+// lib manipular strings
 #include <cstring>
+// lib entrada / saida
 #include <iostream>
+
 using namespace std;
+
 int main(void){ // Pontuacao jogo Tetris;
 
     int jogador; // variavel jogador
@@ -31,15 +23,20 @@ int main(void){ // Pontuacao jogo Tetris;
             break; // sai do programa
         
         string nome[jogador]; // string por 'n' jogadores
-    
+        
+        char nomes[20]; // variavel para pegar o nome do jogador;
+          
         int pontos[jogador]; // array para armazenar pontos por 'n' jogadores
 
         /* BLOCO DE ENTRADA DE DADOS */
     
         for(i=0;i<jogador;i++){ // loop para nome
 //            cout << "Entre com " << i+1 << " nome do jogador.\n";
-            cin >> nome[i]; // entrada do nome em 'i'
-            
+//            cin >> nome[i]; // entrada do nome em 'i'
+            cin >> nomes; // entrada com o nome do jogador de acordo com 'i' no loop for
+            if(strlen(nomes)>15) // verifica se nome possui mais de 15 caracteres
+                break; // sai do programa caso tenha
+                
             int soma=0; // variavel para somar as entradas dos pontos
             int menor=1001; // variavel para pegar o menor numero
             int maior=-1; // variavel para pegar o maior numero
@@ -61,6 +58,7 @@ int main(void){ // Pontuacao jogo Tetris;
             }
             pontos[i] = soma - (maior+menor); // novo valor sem o menor e maior numero
 //            cout << "A pontuacao apos menor e maior e de " << pontos[i] << ".\n";
+            nome[i] = nomes; // string recebe nome apos verificacao;
         }
     
         /* BLOCO DE COMPARACAO DOS RESULTADOS */
@@ -80,10 +78,23 @@ int main(void){ // Pontuacao jogo Tetris;
                 }
             }
         }
+
+        /* BLOCO DE CRIACAO DO RANKING */
+        
+        int pos[jogador]; // definindo um array com tamanho da quantidade de jogadores
+        for(int i=0;i<jogador;i++) // permuta entre 0 ate jogador-1
+            pos[i] = i+1; // ja cria uma pos setada independente de acordo com a quantidade de jogadores
+        
+        // Este for ira comparar a pontuacao e setar a pos identica para tais
+        for(int i=0;i<jogador-1;i++) // permuta do loop de 0 ate jogador-2
+            if(pontos[i] == pontos[i+1]) // verifica se a pontuacao em 'i' eh igual em 'i+1'
+                pos[i+1] = pos[i]; // caso seja, pos de 'i+1' recebe a pos de 'i' que eh a anterior a ele
+        
+        /* BLOCO DE SAIDA DO RANKING FINAL */
+    
         cout << "Teste " << teste << '\n'; // saida do caso de teste em N
-        /* BLOCO PARA EXIBIR O RANKING */
         for(int i=0;i<jogador;i++){ // for para ler o ranking no tamanho de jogador
-            cout << i+1 << '\t' << nome[i] << '\t' << pontos[i] << '\n'; // cout com tabulacoes (tab)
+            cout << pos[i] << "  " << nome[i] << "  " << pontos[i] << "\n\n"; // cout com tabulacoes (tab)
         }
     }
     teste++; // incremento da variavel teste
