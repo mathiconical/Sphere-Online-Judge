@@ -94,7 +94,7 @@ int main(void){ // Pontuacao jogo Tetris;
     
         cout << "Teste " << teste << '\n'; // saida do caso de teste em N
         for(int i=0;i<jogador;i++){ // for para ler o ranking no tamanho de jogador
-            cout << pos[i] << "  " << nome[i] << "  " << pontos[i] << "\n\n"; // cout com tabulacoes (tab)
+            cout << pos[i] << "  " << pontos[i] << "  " << nome[i] << "\n\n"; // cout com tabulacoes (tab)
         }
     }
     teste++; // incremento da variavel teste
