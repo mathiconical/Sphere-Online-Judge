@@ -1,7 +1,3 @@
-/* ESTE CODIGO EH FERENTE AO DESAFIO DO SPOJ ( https://br.spoj.com/problems/OBITETRI/ )
- * ESTOU SUBINDO ELE MAS AINDA NÃO ESTÁ PRONTO, PARTE DELE ESTA INACABADA, POIS ACUSA ERRO NO SPOJ.
- */
-
 // lib manipular strings
 #include <cstring>
 // lib entrada / saida
@@ -93,10 +89,10 @@ int main(void){ // Pontuacao jogo Tetris;
         /* BLOCO DE SAIDA DO RANKING FINAL */
     
         cout << "Teste " << teste << '\n'; // saida do caso de teste em N
-        for(int i=0;i<jogador;i++){ // for para ler o ranking no tamanho de jogador
-            cout << pos[i] << "  " << pontos[i] << "  " << nome[i] << "\n\n"; // cout com tabulacoes (tab)
-        }
-    }
-    teste++; // incremento da variavel teste
+        for(int i=0;i<jogador;i++) // for para ler o ranking no tamanho de jogador
+            cout << pos[i] << "  " << pontos[i] << "  " << nome[i] << "\n"; // cout com tabulacoes (tab)
+        
+  	teste++; // incremento da variavel teste
+	}
     return 0;
 }
