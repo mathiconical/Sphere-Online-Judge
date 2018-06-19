@@ -19,7 +19,7 @@ de copos naquela bandeja, respectivamente (0 ≤ L, C ≤ 100).
 
 * Saída
 Seu programa deve imprimir uma única linha, contendo um único inteiro, indicando o número total de copos que o garçom quebrou.
-/*
+*/
 
 #include <iostream>
 using namespace std;
