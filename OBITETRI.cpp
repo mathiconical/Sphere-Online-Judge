@@ -5,8 +5,6 @@ struct Jogador
 {
   std::string nome;
   int pontos = 0;
-  int menor = 9999;
-  int maior = 0;
 };
 
 int main()
@@ -23,15 +21,17 @@ int main()
     std::cout << "Digite o nome: ";
     std::cin >> jogadores[i].nome;
 
-    int pontos = 0;
+    int pontos, menor, maior;
+    pontos = maior = 0;
+    menor = 9999;
     for(int j = 0; j < 12; j++)
     {
       std::cin >> pontos;
-      if(jogadores[i].menor > jogadores[i].pontos){ jogadores[i].menor = jogadores[i].pontos; }
-      if(jogadores[i].maior < jogadores[i].pontos){ jogadores[i].maior = jogadores[i].pontos; }
+      if(menor > pontos){ menor = pontos; }
+      if(maior < pontos){ maior = pontos; }
       jogadores[i].pontos += pontos;
     }
-    jogadores[i].pontos = jogadores[i].pontos - (jogadores[i].maior + jogadores[i].menor);
+    jogadores[i].pontos += -(maior + menor);
   }
 
   for(int k = 0; k < totalJogadores - 1; k++)
@@ -53,7 +53,8 @@ int main()
       //          << "PONTOS: " << jogadores[i].pontos << "\n\n";
     t++;
   }
-// int aux;
-// std::cin >> aux;
+  int ax;
+  std::cin >> ax;
+
   return 0;
 }
